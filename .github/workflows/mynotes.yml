@@ -18,4 +18,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvnw package
+        run: mvn package
