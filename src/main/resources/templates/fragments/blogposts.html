@@ -1,0 +1,22 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body}, 'Home Page Title')}">
+
+<body>
+
+<th:block th:if="${!#lists.isEmpty(blogPosts)}">
+    <h4 class="text-center fixed-top position-sticky p-2 border-bottom border-dark bg-light" >Blog Posts</h4>
+    <div class="card mb-3" th:each="blogPost : ${blogPosts}">
+        <div class="card-body">
+            <p class="card-text" th:text="${blogPost.article()}"></p>
+        </div>
+
+        <div class="card-footer text-muted">
+            <i>created at:</i>
+            <b th:text="${#temporals.format(blogPost.createdAt(), 'dd-MMM-yyyy HH:mm', 'GMT')}"></b>
+        </div>
+    </div>
+</th:block>
+
+</body>
+</html>

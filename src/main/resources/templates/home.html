@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{fragments/layout :: layout (~{::body}, 'Home Page Title')}">
+
 <body>
-<h2>This is the home page!</h2>
+<div class="container-fluid">
+    <div class="row" style="height: 100%">
+        <iframe th:src="@{/categories}" name="category_iframe" class="col-3" ></iframe>
+
+        <iframe th:src="@{/categories/1/blogs}" name="blog_titles_iframe" class="col-3" ></iframe>
+
+        <iframe th:src="@{/categories/1/blogs/1}" name="blog_posts_iframe" class="col-6" ></iframe>
+
+    </div>
+</div>
+
 </body>
 </html>

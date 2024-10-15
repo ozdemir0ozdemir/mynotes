@@ -1,0 +1,20 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body}, 'Home Page Title')}">
+
+<body>
+
+<th:block th:if="${!#lists.isEmpty(blogTitles)}">
+    <h4 class="text-center fixed-top position-sticky p-2 border-bottom border-dark bg-light" >Blog Titles</h4>
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action"
+           aria-current="true"
+           th:each="blogTitle : ${blogTitles}"
+           th:href="@{/categories/__${categoryId}__/blogs/__${blogTitle.blogTitleId}__}"
+           th:text="${blogTitle.blogTitle}"
+           target="blog_posts_iframe"></a>
+    </div>
+</th:block>
+
+</body>
+</html>
